@@ -20,10 +20,8 @@ chmod +x sh.sh
 
 REPO_URL="https://github.com/GXUCPC/Gxucpc-system"
 git clone $REPO_URL
-.git tmp
-mv tmp/.git ./
-rmdir tmp
-git reset --hard HEAD
+echo "仓库 '$REPO_URL' 已克隆到 '$repo_name'。"
+
 
 echo "欢迎使用分支管理脚本"
 echo "请输入以下命令来执行操作："
@@ -68,7 +66,6 @@ esac
 
 git clone https://github.com/GXUCPC/Gxucpc-system
 cd repository
-
 if [ -f "package.json" ]; then
     echo "检测到Node.js项目，正在安装npm依赖..."
     npm install
