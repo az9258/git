@@ -20,6 +20,11 @@ chmod +x sh.sh
 
 REPO_URL="https://github.com/GXUCPC/Gxucpc-system"
 git clone $REPO_URL
+.git tmp
+mv tmp/.git ./
+rmdir tmp
+git reset --hard HEAD
+
 echo "欢迎使用分支管理脚本"
 echo "请输入以下命令来执行操作："
 echo " 1: 创建并切换到新分支"
@@ -60,24 +65,9 @@ case $option in
     ;;
 esac
 
-JDK_VERSION=jdk-17.0.2
-JDK_BUILD=8
-JDK_DOWNLOAD_URL=https://example.com/$JDK_VERSION"_linux-x64_bin.tar.gz"
 
-echo "Downloading JDK..."
-wget -O $JDK_VERSION.tar.gz $JDK_DOWNLOAD_URL
-
-echo "Installing JDK..."
-tar -xzf $JDK_VERSION.tar.gz -C /opt
-
-echo "Setting environment variables..."
-export JAVA_HOME=/opt/$JDK_VERSION
-export PATH=$JAVA_HOME/bin:$PATH
-
-echo "JDK installed and environment variables set."
-
-
-cd /
+git clone https://github.com/GXUCPC/Gxucpc-system
+cd repository
 
 if [ -f "package.json" ]; then
     echo "检测到Node.js项目，正在安装npm依赖..."
